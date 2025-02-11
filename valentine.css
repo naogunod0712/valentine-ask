@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;700&display=swap');
 
 body {
-    background: linear-gradient(135deg, #4b1248, #1e1a35);
+    background: linear-gradient(135deg, #4b1248, #b044a1);
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -10,28 +10,52 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    overflow: hidden;
+    position: relative;
 }
 
+/* Sparkles */
+@keyframes sparkle {
+    0% { opacity: 0; transform: translateY(0px) scale(1); }
+    50% { opacity: 1; transform: translateY(-10px) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-20px) scale(1); }
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gold;
+    opacity: 0;
+    animation: sparkle 2s infinite;
+}
+
+/* Container */
 .container {
     max-width: 600px;
     padding: 20px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
+/* Title */
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 48px;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
 }
 
+/* Subtitle */
 .subtitle {
     font-size: 18px;
     margin-bottom: 20px;
     opacity: 0.8;
 }
 
+/* Buttons */
 .buttons {
     display: flex;
     justify-content: center;
@@ -48,8 +72,24 @@ body {
     color: #ff66b2;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+/* Rose on Yes button */
+.btn::before {
+    content: "🌹";
+    font-size: 20px;
+}
+
+/* Smiley Face on Very Much Yes button */
+.special::before {
+    content: "😊";
+    font-size: 20px;
+}
+
+/* Hover Effects */
 .btn:hover {
     background: #ff66b2;
     color: #fff;
@@ -65,4 +105,11 @@ body {
     background: #ffcc00;
     color: #1e1a35;
     box-shadow: 0 0 15px #ffcc00;
+}
+
+.response-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
