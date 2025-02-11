@@ -1,2 +1,2 @@
 # valentine-ask
-Repo to create Valentine website 
+This repo was done to create Valentine website for my girlfriend to ask her  
