@@ -1,38 +1,17 @@
 document.getElementById("yesBtn").addEventListener("click", function() {
-    sendChoice("Yes");
+    redirectToResponse("Yes");
 });
 
 document.getElementById("veryMuchYesBtn").addEventListener("click", function() {
-    sendChoice("Very Much Yes");
+    redirectToResponse("Very Much Yes");
 });
 
-function sendChoice(choice) {
-    fetch("https://your-app-name.onrender.com/submit", {  // Replace with your actual Flask backend URL
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ choice: choice })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.message); // Log success message
-        showThankYouMessage(choice); // Show confirmation on the page
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("Something went wrong! Try again.");
-    });
+function redirectToResponse(choice) {
+    // Redirect to the response page with the selected choice
+    window.location.href = `response.html?choice=${encodeURIComponent(choice)}`;
 }
 
-function showThankYouMessage(choice) {
-    document.body.innerHTML = `
-        <div class="container">
-            <h1 class="title">Thank You, My Love ❤️</h1>
-            <p class="subtitle">You chose: <strong>${choice}</strong></p>
-            <p class="subtitle">I can’t wait to spend Valentine's with you!</p>
-        </div>
-    `;
-}
-
+// Sparkle Effect
 function createSparkle() {
     const sparkle = document.createElement("div");
     sparkle.classList.add("sparkle");
